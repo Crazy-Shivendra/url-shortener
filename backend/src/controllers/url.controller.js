@@ -17,7 +17,7 @@ const shortenUrl = async (req, res) => {
     const result = await createShortUrl(url, customCode);
 
     res.json({
-      shortUrl: `http://localhost:3000/${result.shortCode}`,
+      shortUrl: `${process.env.BASE_URL}/${result.shortCode}`,
     });
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -70,11 +70,6 @@ const getTopAnalytics = async (req, res) => {
   }
 };
 
-module.exports = {
-  shortenUrl,
-  redirectUrl,
-  getAnalytics,
-  getTopAnalytics,
-};
+
 
 module.exports = { shortenUrl, redirectUrl, getAnalytics, getTopAnalytics };
