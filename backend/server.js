@@ -4,7 +4,7 @@ const connectDB = require("./src/config/db");
 
 // Connect to MongoDB
 const { connectRedis } = require("./src/config/redis");
-console.log("REDIS_URL =", process.env.REDIS_URL);
+
 
 const startServer = async () => {
   await connectDB();

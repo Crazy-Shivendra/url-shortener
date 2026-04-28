@@ -27,7 +27,6 @@ const shortenUrl = async (req, res) => {
 
 
 const redirectUrl = async (req, res) => {
-  console.log("🔥 REDIRECT HIT:", req.params.shortCode);
   try {
     const { shortCode } = req.params;
 
@@ -35,6 +34,11 @@ const redirectUrl = async (req, res) => {
 
     if (!originalUrl) {
       return res.status(404).json({ message: "URL not found" });
+    }
+
+    // 🔥 YAHAN ADD KARO
+    if (!originalUrl.startsWith("http")) {
+      return res.redirect("https://" + originalUrl);
     }
 
     res.redirect(originalUrl);

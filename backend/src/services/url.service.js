@@ -36,11 +36,11 @@ const getOriginalUrl = async (shortCode) => {
   const cachedUrl = await redisClient.get(shortCode);
 
   if (cachedUrl) {
-    console.log("✅ Cache HIT");
+    
     return cachedUrl;
   }
 
-  console.log("❌ Cache MISS → DB call");
+  
 
   // 🔥 2. DB lookup
   const urlDoc = await Url.findOne({ shortCode });
