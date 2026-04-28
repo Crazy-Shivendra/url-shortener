@@ -1,6 +1,6 @@
 // src/services/api.js
 
-const BASE_URL = "https://url-shortener-1-dms6.onrender.com"; // later env me daalenge
+const BASE_URL = import.meta.env.VITE_API_URL; // later env me daalenge
 
 // 🔹 1. Shorten URL
 export const shortenUrl = async (url, customCode) => {
